@@ -2,18 +2,42 @@ export interface StudentData {
   id: string;
   name: string;
   email: string;
+  phone: string;
   class: string;
   semester: string;
+  rollNumber: string;
+  dateOfBirth: string;
+  address: string;
   attendance: number;
   averageGrade: number;
   testScores: number[];
   subjectAttempts: { [subject: string]: number };
   feesPaid: boolean;
+  feesAmount: number;
+  feesDueDate: string;
   lastActive: string;
   riskScore: number;
   riskLevel: 'low' | 'moderate' | 'high';
   alerts: Alert[];
   interventions: Intervention[];
+  parentDetails: ParentDetails;
+}
+
+export interface ParentDetails {
+  fatherName: string;
+  fatherPhone: string;
+  fatherEmail: string;
+  fatherOccupation: string;
+  motherName: string;
+  motherPhone: string;
+  motherEmail: string;
+  motherOccupation: string;
+  guardianName?: string;
+  guardianPhone?: string;
+  guardianEmail?: string;
+  guardianRelation?: string;
+  preferredContact: 'father' | 'mother' | 'guardian';
+  communicationPreference: 'sms' | 'email' | 'call' | 'whatsapp';
 }
 
 export interface Alert {

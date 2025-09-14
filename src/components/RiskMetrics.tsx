@@ -15,7 +15,7 @@ interface RiskMetricsProps {
 const RiskMetrics: React.FC<RiskMetricsProps> = ({ stats }) => {
   const metrics = [
     {
-      label: 'Total Students',
+      label: 'कुल छात्र',
       value: stats.total,
       icon: Users,
       color: 'text-blue-600',
@@ -23,7 +23,7 @@ const RiskMetrics: React.FC<RiskMetricsProps> = ({ stats }) => {
       borderColor: 'border-blue-200',
     },
     {
-      label: 'High Risk',
+      label: 'उच्च जोखिम',
       value: stats.high,
       percentage: stats.total > 0 ? Math.round((stats.high / stats.total) * 100) : 0,
       icon: AlertTriangle,
@@ -32,7 +32,7 @@ const RiskMetrics: React.FC<RiskMetricsProps> = ({ stats }) => {
       borderColor: 'border-red-200',
     },
     {
-      label: 'Moderate Risk',
+      label: 'मध्यम जोखिम',
       value: stats.moderate,
       percentage: stats.total > 0 ? Math.round((stats.moderate / stats.total) * 100) : 0,
       icon: TrendingUp,
@@ -41,7 +41,7 @@ const RiskMetrics: React.FC<RiskMetricsProps> = ({ stats }) => {
       borderColor: 'border-yellow-200',
     },
     {
-      label: 'Low Risk',
+      label: 'कम जोखिम',
       value: stats.low,
       percentage: stats.total > 0 ? Math.round((stats.low / stats.total) * 100) : 0,
       icon: Shield,
@@ -58,18 +58,18 @@ const RiskMetrics: React.FC<RiskMetricsProps> = ({ stats }) => {
         return (
           <div
             key={metric.label}
-            className={`bg-white p-6 rounded-lg shadow-sm border ${metric.borderColor}`}
+            className={`bg-white p-6 rounded-xl shadow-lg border ${metric.borderColor} hover:shadow-xl transition-all duration-300 hover:scale-105`}
           >
             <div className="flex items-center">
-              <div className={`${metric.bgColor} rounded-md p-3`}>
+              <div className={`${metric.bgColor} rounded-xl p-3 shadow-sm`}>
                 <Icon className={`h-6 w-6 ${metric.color}`} />
               </div>
               <div className="ml-4 flex-1">
-                <p className="text-sm font-medium text-gray-600">{metric.label}</p>
+                <p className="text-sm font-semibold text-gray-600">{metric.label}</p>
                 <div className="flex items-baseline">
-                  <p className="text-2xl font-semibold text-gray-900">{metric.value}</p>
+                  <p className="text-3xl font-bold text-gray-900">{metric.value}</p>
                   {metric.percentage !== undefined && (
-                    <p className={`ml-2 text-sm ${metric.color}`}>
+                    <p className={`ml-2 text-sm font-semibold ${metric.color}`}>
                       ({metric.percentage}%)
                     </p>
                   )}

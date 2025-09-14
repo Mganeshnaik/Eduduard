@@ -43,11 +43,13 @@ const Dashboard: React.FC<DashboardProps> = ({ students, onStudentSelect }) => {
       {/* Page Header */}
       <div className="flex justify-between items-center">
         <div>
-          <h1 className="text-2xl font-bold text-gray-900">Student Risk Dashboard</h1>
-          <p className="text-gray-600 mt-1">Monitor and identify at-risk students for early intervention</p>
+          <h1 className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+            छात्र जोखिम डैशबोर्ड
+          </h1>
+          <p className="text-gray-600 mt-2">प्रारंभिक हस्तक्षेप के लिए जोखिम वाले छात्रों की निगरानी और पहचान करें</p>
         </div>
         <div className="text-right">
-          <p className="text-sm text-gray-500">Last updated: {new Date().toLocaleDateString()}</p>
+          <p className="text-sm text-gray-500">अंतिम अपडेट: {new Date().toLocaleDateString('hi-IN')}</p>
         </div>
       </div>
 
@@ -55,17 +57,17 @@ const Dashboard: React.FC<DashboardProps> = ({ students, onStudentSelect }) => {
       <RiskMetrics stats={riskStats} />
 
       {/* Filters */}
-      <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+      <div className="bg-white p-6 rounded-xl shadow-lg border border-gray-200">
         <div className="flex flex-col sm:flex-row gap-4">
           <div className="flex-1">
             <div className="relative">
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
               <input
                 type="text"
-                placeholder="Search students by name or email..."
+                placeholder="नाम या ईमेल से छात्रों को खोजें..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent shadow-sm"
               />
             </div>
           </div>
@@ -73,19 +75,19 @@ const Dashboard: React.FC<DashboardProps> = ({ students, onStudentSelect }) => {
             <select
               value={riskFilter}
               onChange={(e) => setRiskFilter(e.target.value)}
-              className="px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent shadow-sm"
             >
-              <option value="all">All Risk Levels</option>
-              <option value="high">High Risk</option>
-              <option value="moderate">Moderate Risk</option>
-              <option value="low">Low Risk</option>
+              <option value="all">सभी जोखिम स्तर</option>
+              <option value="high">उच्च जोखिम</option>
+              <option value="moderate">मध्यम जोखिम</option>
+              <option value="low">कम जोखिम</option>
             </select>
             <select
               value={classFilter}
               onChange={(e) => setClassFilter(e.target.value)}
-              className="px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent shadow-sm"
             >
-              <option value="all">All Classes</option>
+              <option value="all">सभी कक्षाएं</option>
               {classes.map(className => (
                 <option key={className} value={className}>{className}</option>
               ))}
@@ -95,7 +97,7 @@ const Dashboard: React.FC<DashboardProps> = ({ students, onStudentSelect }) => {
       </div>
 
       {/* Students Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
         {filteredStudents.map(student => (
           <StudentCard
             key={student.id}
@@ -108,9 +110,9 @@ const Dashboard: React.FC<DashboardProps> = ({ students, onStudentSelect }) => {
       {filteredStudents.length === 0 && (
         <div className="text-center py-12">
           <Users className="mx-auto h-12 w-12 text-gray-400" />
-          <h3 className="mt-2 text-sm font-medium text-gray-900">No students found</h3>
+          <h3 className="mt-2 text-sm font-medium text-gray-900">कोई छात्र नहीं मिला</h3>
           <p className="mt-1 text-sm text-gray-500">
-            Try adjusting your search criteria or filters.
+            अपने खोज मानदंड या फिल्टर को समायोजित करने का प्रयास करें।
           </p>
         </div>
       )}
