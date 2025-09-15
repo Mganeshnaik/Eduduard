@@ -44,12 +44,12 @@ const Dashboard: React.FC<DashboardProps> = ({ students, onStudentSelect }) => {
       <div className="flex justify-between items-center">
         <div>
           <h1 className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-            छात्र जोखिम डैशबोर्ड
+            Student Risk Dashboard
           </h1>
-          <p className="text-gray-600 mt-2">प्रारंभिक हस्तक्षेप के लिए जोखिम वाले छात्रों की निगरानी और पहचान करें</p>
+          <p className="text-gray-600 mt-2">Monitor and identify at-risk students for early intervention</p>
         </div>
         <div className="text-right">
-          <p className="text-sm text-gray-500">अंतिम अपडेट: {new Date().toLocaleDateString('hi-IN')}</p>
+          <p className="text-sm text-gray-500">Last Updated: {new Date().toLocaleDateString('en-US')}</p>
         </div>
       </div>
 
@@ -64,7 +64,7 @@ const Dashboard: React.FC<DashboardProps> = ({ students, onStudentSelect }) => {
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
               <input
                 type="text"
-                placeholder="नाम या ईमेल से छात्रों को खोजें..."
+                placeholder="Search students by name or email..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent shadow-sm"
@@ -77,17 +77,17 @@ const Dashboard: React.FC<DashboardProps> = ({ students, onStudentSelect }) => {
               onChange={(e) => setRiskFilter(e.target.value)}
               className="px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent shadow-sm"
             >
-              <option value="all">सभी जोखिम स्तर</option>
-              <option value="high">उच्च जोखिम</option>
-              <option value="moderate">मध्यम जोखिम</option>
-              <option value="low">कम जोखिम</option>
+              <option value="all">All Risk Levels</option>
+              <option value="high">High Risk</option>
+              <option value="moderate">Moderate Risk</option>
+              <option value="low">Low Risk</option>
             </select>
             <select
               value={classFilter}
               onChange={(e) => setClassFilter(e.target.value)}
               className="px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent shadow-sm"
             >
-              <option value="all">सभी कक्षाएं</option>
+              <option value="all">All Classes</option>
               {classes.map(className => (
                 <option key={className} value={className}>{className}</option>
               ))}
@@ -110,9 +110,9 @@ const Dashboard: React.FC<DashboardProps> = ({ students, onStudentSelect }) => {
       {filteredStudents.length === 0 && (
         <div className="text-center py-12">
           <Users className="mx-auto h-12 w-12 text-gray-400" />
-          <h3 className="mt-2 text-sm font-medium text-gray-900">कोई छात्र नहीं मिला</h3>
+          <h3 className="mt-2 text-sm font-medium text-gray-900">No students found</h3>
           <p className="mt-1 text-sm text-gray-500">
-            अपने खोज मानदंड या फिल्टर को समायोजित करने का प्रयास करें।
+            Try adjusting your search criteria or filters.
           </p>
         </div>
       )}

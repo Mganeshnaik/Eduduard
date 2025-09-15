@@ -66,7 +66,7 @@ const StudentCard: React.FC<StudentCardProps> = ({ student, onClick }) => {
           {unacknowledgedAlerts > 0 && (
             <div className="flex items-center text-red-600 bg-red-50 px-2 py-1 rounded-full">
               <AlertTriangle className="h-4 w-4 mr-1" />
-              <span className="text-xs font-bold">{unacknowledgedAlerts} अलर्ट</span>
+              <span className="text-xs font-bold">{unacknowledgedAlerts} Alert{unacknowledgedAlerts > 1 ? 's' : ''}</span>
             </div>
           )}
         </div>
@@ -76,13 +76,13 @@ const StudentCard: React.FC<StudentCardProps> = ({ student, onClick }) => {
         <div className="flex items-center justify-between p-2 bg-white/50 rounded-lg">
           <div className="flex items-center">
             <Phone className="h-4 w-4 text-gray-500 mr-2" />
-            <span className="text-sm text-gray-600">संपर्क</span>
+            <span className="text-sm text-gray-600">Contact</span>
           </div>
           <span className="text-sm font-medium text-gray-900">{student.phone}</span>
         </div>
 
         <div className="flex justify-between items-center">
-          <span className="text-sm text-gray-600 font-medium">उपस्थिति</span>
+          <span className="text-sm text-gray-600 font-medium">Attendance</span>
           <span className={`text-sm font-medium ${
             student.attendance >= 80 ? 'text-green-600' : 
             student.attendance >= 60 ? 'text-yellow-600' : 'text-red-600'
@@ -92,7 +92,7 @@ const StudentCard: React.FC<StudentCardProps> = ({ student, onClick }) => {
         </div>
 
         <div className="flex justify-between items-center">
-          <span className="text-sm text-gray-600 font-medium">औसत अंक</span>
+          <span className="text-sm text-gray-600 font-medium">Average Grade</span>
           <span className={`text-sm font-medium ${
             student.averageGrade >= 70 ? 'text-green-600' : 
             student.averageGrade >= 50 ? 'text-yellow-600' : 'text-red-600'
@@ -102,7 +102,7 @@ const StudentCard: React.FC<StudentCardProps> = ({ student, onClick }) => {
         </div>
 
         <div className="flex justify-between items-center">
-          <span className="text-sm text-gray-600 font-medium">जोखिम स्कोर</span>
+          <span className="text-sm text-gray-600 font-medium">Risk Score</span>
           <span className={`text-sm font-medium ${colors.text}`}>
             {Math.round(student.riskScore * 100)}%
           </span>
@@ -111,15 +111,15 @@ const StudentCard: React.FC<StudentCardProps> = ({ student, onClick }) => {
         <div className="flex justify-between items-center">
           <div className="flex items-center">
             <CreditCard className="h-4 w-4 text-gray-500 mr-1" />
-            <span className="text-sm text-gray-600 font-medium">फीस स्थिति</span>
+            <span className="text-sm text-gray-600 font-medium">Fee Status</span>
           </div>
           <div className="text-right">
             <span className={`text-sm font-bold ${
               student.feesPaid ? 'text-green-600' : 'text-red-600'
             }`}>
-              {student.feesPaid ? 'भुगतान' : 'बकाया'}
+              {student.feesPaid ? 'Paid' : 'Pending'}
             </span>
-            <p className="text-xs text-gray-500">₹{student.feesAmount.toLocaleString('hi-IN')}</p>
+            <p className="text-xs text-gray-500">₹{student.feesAmount.toLocaleString('en-IN')}</p>
           </div>
         </div>
       </div>
@@ -133,7 +133,7 @@ const StudentCard: React.FC<StudentCardProps> = ({ student, onClick }) => {
         </div>
         <div className="flex items-center text-xs text-gray-500 mt-1">
           <Calendar className="h-3 w-3 mr-1" />
-          अंतिम सक्रिय: {new Date(student.lastActive).toLocaleDateString('hi-IN')}
+          Last Active: {new Date(student.lastActive).toLocaleDateString('en-US')}
         </div>
       </div>
     </div>

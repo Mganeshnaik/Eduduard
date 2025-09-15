@@ -8,9 +8,9 @@ interface HeaderProps {
 
 const Header: React.FC<HeaderProps> = ({ currentView, onViewChange }) => {
   const navItems = [
-    { id: 'dashboard', label: 'डैशबोर्ड', icon: BarChart3 },
-    { id: 'data', label: 'डेटा अपलोड', icon: Upload },
-    { id: 'settings', label: 'सेटिंग्स', icon: Settings },
+    { id: 'dashboard', label: 'Dashboard', icon: BarChart3 },
+    { id: 'data', label: 'Data Upload', icon: Upload },
+    { id: 'settings', label: 'Settings', icon: Settings },
   ];
 
   return (
@@ -23,7 +23,7 @@ const Header: React.FC<HeaderProps> = ({ currentView, onViewChange }) => {
                 <GraduationCap className="h-8 w-8 text-white" />
               </div>
               <h1 className="ml-3 text-xl font-bold text-white">
-                छात्र जोखिम निगरानी प्रणाली
+                EduGuard - Student Risk Monitoring
               </h1>
             </div>
           </div>

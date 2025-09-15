@@ -15,7 +15,7 @@ interface RiskMetricsProps {
 const RiskMetrics: React.FC<RiskMetricsProps> = ({ stats }) => {
   const metrics = [
     {
-      label: 'कुल छात्र',
+      label: 'Total Students',
       value: stats.total,
       icon: Users,
       color: 'text-blue-600',
@@ -23,7 +23,7 @@ const RiskMetrics: React.FC<RiskMetricsProps> = ({ stats }) => {
       borderColor: 'border-blue-200',
     },
     {
-      label: 'उच्च जोखिम',
+      label: 'High Risk',
       value: stats.high,
       percentage: stats.total > 0 ? Math.round((stats.high / stats.total) * 100) : 0,
       icon: AlertTriangle,
@@ -32,7 +32,7 @@ const RiskMetrics: React.FC<RiskMetricsProps> = ({ stats }) => {
       borderColor: 'border-red-200',
     },
     {
-      label: 'मध्यम जोखिम',
+      label: 'Moderate Risk',
       value: stats.moderate,
       percentage: stats.total > 0 ? Math.round((stats.moderate / stats.total) * 100) : 0,
       icon: TrendingUp,
@@ -41,7 +41,7 @@ const RiskMetrics: React.FC<RiskMetricsProps> = ({ stats }) => {
       borderColor: 'border-yellow-200',
     },
     {
-      label: 'कम जोखिम',
+      label: 'Low Risk',
       value: stats.low,
       percentage: stats.total > 0 ? Math.round((stats.low / stats.total) * 100) : 0,
       icon: Shield,
