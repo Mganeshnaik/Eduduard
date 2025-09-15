@@ -60,7 +60,7 @@ const StudentProfile: React.FC<StudentProfileProps> = ({ student, onBack }) => {
     setContactMessage('');
     setShowParentContact(false);
     // Show success message
-    alert('अभिभावकों को अलर्ट भेजा गया!');
+    alert('Alert sent to parents!');
   };
 
   const getInterventionIcon = (type: string) => {
@@ -98,7 +98,7 @@ const StudentProfile: React.FC<StudentProfileProps> = ({ student, onBack }) => {
           className="flex items-center text-gray-600 hover:text-gray-900 mb-4 transition-colors"
         >
           <ArrowLeft className="h-4 w-4 mr-2" />
-          डैशबोर्ड पर वापस
+          Back to Dashboard
         </button>
         
         <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl shadow-lg border border-gray-200 p-8">
@@ -136,15 +136,15 @@ const StudentProfile: React.FC<StudentProfileProps> = ({ student, onBack }) => {
             </div>
             <div className="flex flex-col items-end gap-3">
               <span className={`px-4 py-2 rounded-full text-sm font-bold ${getRiskColor(student.riskLevel)} shadow-sm`}>
-                {student.riskLevel === 'high' ? 'उच्च जोखिम' : 
-                 student.riskLevel === 'moderate' ? 'मध्यम जोखिम' : 'कम जोखिम'}
+                {student.riskLevel === 'high' ? 'High Risk' : 
+                 student.riskLevel === 'moderate' ? 'Moderate Risk' : 'Low Risk'}
               </span>
               <button
                 onClick={() => setShowParentContact(true)}
                 className="flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors shadow-sm"
               >
                 <MessageSquare className="h-4 w-4 mr-2" />
-                अभिभावकों से संपर्क
+                Contact Parents
               </button>
             </div>
           </div>
@@ -156,7 +156,7 @@ const StudentProfile: React.FC<StudentProfileProps> = ({ student, onBack }) => {
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
           <div className="bg-white rounded-xl p-6 max-w-2xl w-full mx-4 max-h-[90vh] overflow-y-auto">
             <div className="flex items-center justify-between mb-6">
-              <h2 className="text-xl font-bold text-gray-900">अभिभावकों से संपर्क करें</h2>
+              <h2 className="text-xl font-bold text-gray-900">Contact Parents</h2>
               <button
                 onClick={() => setShowParentContact(false)}
                 className="text-gray-400 hover:text-gray-600"
@@ -168,31 +168,31 @@ const StudentProfile: React.FC<StudentProfileProps> = ({ student, onBack }) => {
             {/* Parent Details */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
               <div className="bg-blue-50 p-4 rounded-lg">
-                <h3 className="font-semibold text-gray-900 mb-2">पिता की जानकारी</h3>
+                <h3 className="font-semibold text-gray-900 mb-2">Father's Information</h3>
                 <div className="space-y-2 text-sm">
-                  <p><span className="font-medium">नाम:</span> {student.parentDetails.fatherName}</p>
-                  <p><span className="font-medium">फोन:</span> {student.parentDetails.fatherPhone}</p>
-                  <p><span className="font-medium">ईमेल:</span> {student.parentDetails.fatherEmail}</p>
-                  <p><span className="font-medium">व्यवसाय:</span> {student.parentDetails.fatherOccupation}</p>
+                  <p><span className="font-medium">Name:</span> {student.parentDetails.fatherName}</p>
+                  <p><span className="font-medium">Phone:</span> {student.parentDetails.fatherPhone}</p>
+                  <p><span className="font-medium">Email:</span> {student.parentDetails.fatherEmail}</p>
+                  <p><span className="font-medium">Occupation:</span> {student.parentDetails.fatherOccupation}</p>
                 </div>
               </div>
               <div className="bg-pink-50 p-4 rounded-lg">
-                <h3 className="font-semibold text-gray-900 mb-2">माता की जानकारी</h3>
+                <h3 className="font-semibold text-gray-900 mb-2">Mother's Information</h3>
                 <div className="space-y-2 text-sm">
-                  <p><span className="font-medium">नाम:</span> {student.parentDetails.motherName}</p>
-                  <p><span className="font-medium">फोन:</span> {student.parentDetails.motherPhone}</p>
-                  <p><span className="font-medium">ईमेल:</span> {student.parentDetails.motherEmail}</p>
-                  <p><span className="font-medium">व्यवसाय:</span> {student.parentDetails.motherOccupation}</p>
+                  <p><span className="font-medium">Name:</span> {student.parentDetails.motherName}</p>
+                  <p><span className="font-medium">Phone:</span> {student.parentDetails.motherPhone}</p>
+                  <p><span className="font-medium">Email:</span> {student.parentDetails.motherEmail}</p>
+                  <p><span className="font-medium">Occupation:</span> {student.parentDetails.motherOccupation}</p>
                 </div>
               </div>
               {student.parentDetails.guardianName && (
                 <div className="bg-green-50 p-4 rounded-lg md:col-span-2">
-                  <h3 className="font-semibold text-gray-900 mb-2">अभिभावक की जानकारी</h3>
+                  <h3 className="font-semibold text-gray-900 mb-2">Guardian's Information</h3>
                   <div className="grid grid-cols-2 gap-4 text-sm">
-                    <p><span className="font-medium">नाम:</span> {student.parentDetails.guardianName}</p>
-                    <p><span className="font-medium">संबंध:</span> {student.parentDetails.guardianRelation}</p>
-                    <p><span className="font-medium">फोन:</span> {student.parentDetails.guardianPhone}</p>
-                    <p><span className="font-medium">ईमेल:</span> {student.parentDetails.guardianEmail}</p>
+                    <p><span className="font-medium">Name:</span> {student.parentDetails.guardianName}</p>
+                    <p><span className="font-medium">Relation:</span> {student.parentDetails.guardianRelation}</p>
+                    <p><span className="font-medium">Phone:</span> {student.parentDetails.guardianPhone}</p>
+                    <p><span className="font-medium">Email:</span> {student.parentDetails.guardianEmail}</p>
                   </div>
                 </div>
               )}
@@ -200,12 +200,12 @@ const StudentProfile: React.FC<StudentProfileProps> = ({ student, onBack }) => {
 
             {/* Contact Method Selection */}
             <div className="mb-4">
-              <label className="block text-sm font-medium text-gray-700 mb-2">संपर्क का तरीका</label>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Contact Method</label>
               <div className="grid grid-cols-4 gap-2">
                 {[
                   { value: 'sms', label: 'SMS', icon: '📱' },
-                  { value: 'email', label: 'ईमेल', icon: '📧' },
-                  { value: 'call', label: 'कॉल', icon: '📞' },
+                  { value: 'email', label: 'Email', icon: '📧' },
+                  { value: 'call', label: 'Call', icon: '📞' },
                   { value: 'whatsapp', label: 'WhatsApp', icon: '💬' },
                 ].map((method) => (
                   <button
@@ -226,16 +226,16 @@ const StudentProfile: React.FC<StudentProfileProps> = ({ student, onBack }) => {
 
             {/* Message Input */}
             <div className="mb-6">
-              <label className="block text-sm font-medium text-gray-700 mb-2">संदेश</label>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Message</label>
               <textarea
                 value={contactMessage}
                 onChange={(e) => setContactMessage(e.target.value)}
-                placeholder="अभिभावकों को भेजने के लिए संदेश लिखें..."
+                placeholder="Write a message to send to parents..."
                 className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 rows={4}
               />
               <div className="mt-2 text-xs text-gray-500">
-                सुझावित संदेश: "आपके बच्चे {student.name} की शैक्षणिक प्रगति के बारे में चर्चा करने के लिए कृपया संपर्क करें।"
+                Suggested message: "Please contact us to discuss your child {student.name}'s academic progress."
               </div>
             </div>
 
@@ -247,13 +247,13 @@ const StudentProfile: React.FC<StudentProfileProps> = ({ student, onBack }) => {
                 className="flex-1 flex items-center justify-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors"
               >
                 <Send className="h-4 w-4 mr-2" />
-                अलर्ट भेजें
+                Send Alert
               </button>
               <button
                 onClick={() => setShowParentContact(false)}
                 className="px-4 py-2 bg-gray-200 text-gray-800 rounded-lg hover:bg-gray-300 transition-colors"
               >
-                रद्द करें
+                Cancel
               </button>
             </div>
           </div>
@@ -263,7 +263,7 @@ const StudentProfile: React.FC<StudentProfileProps> = ({ student, onBack }) => {
       {/* Risk Metrics */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 mb-6">
         <div className="bg-white p-6 rounded-xl shadow-lg border border-gray-200 hover:shadow-xl transition-shadow">
-          <h3 className="text-sm font-medium text-gray-600 mb-2">उपस्थिति</h3>
+          <h3 className="text-sm font-medium text-gray-600 mb-2">Attendance</h3>
           <div className="flex items-center">
             <span className={`text-2xl font-bold ${
               student.attendance >= 80 ? 'text-green-600' : 
@@ -275,7 +275,7 @@ const StudentProfile: React.FC<StudentProfileProps> = ({ student, onBack }) => {
         </div>
 
         <div className="bg-white p-6 rounded-xl shadow-lg border border-gray-200 hover:shadow-xl transition-shadow">
-          <h3 className="text-sm font-medium text-gray-600 mb-2">औसत अंक</h3>
+          <h3 className="text-sm font-medium text-gray-600 mb-2">Average Grade</h3>
           <div className="flex items-center">
             <span className={`text-2xl font-bold ${
               student.averageGrade >= 70 ? 'text-green-600' : 
@@ -287,7 +287,7 @@ const StudentProfile: React.FC<StudentProfileProps> = ({ student, onBack }) => {
         </div>
 
         <div className="bg-white p-6 rounded-xl shadow-lg border border-gray-200 hover:shadow-xl transition-shadow">
-          <h3 className="text-sm font-medium text-gray-600 mb-2">जोखिम स्कोर</h3>
+          <h3 className="text-sm font-medium text-gray-600 mb-2">Risk Score</h3>
           <div className="flex items-center">
             <span className={`text-2xl font-bold ${getRiskColor(student.riskLevel).split(' ')[0]}`}>
               {Math.round(student.riskScore * 100)}%
@@ -296,26 +296,26 @@ const StudentProfile: React.FC<StudentProfileProps> = ({ student, onBack }) => {
         </div>
 
         <div className="bg-white p-6 rounded-xl shadow-lg border border-gray-200 hover:shadow-xl transition-shadow">
-          <h3 className="text-sm font-medium text-gray-600 mb-2">फीस स्थिति</h3>
+          <h3 className="text-sm font-medium text-gray-600 mb-2">Fee Status</h3>
           <div className="flex items-center">
             <span className={`text-2xl font-bold ${
               student.feesPaid ? 'text-green-600' : 'text-red-600'
             }`}>
-              {student.feesPaid ? 'भुगतान' : 'बकाया'}
+              {student.feesPaid ? 'Paid' : 'Pending'}
             </span>
           </div>
-          <p className="text-xs text-gray-500 mt-1">₹{student.feesAmount.toLocaleString('hi-IN')}</p>
+          <p className="text-xs text-gray-500 mt-1">₹{student.feesAmount.toLocaleString('en-IN')}</p>
         </div>
 
         <div className="bg-white p-6 rounded-xl shadow-lg border border-gray-200 hover:shadow-xl transition-shadow">
-          <h3 className="text-sm font-medium text-gray-600 mb-2">जन्म तिथि</h3>
+          <h3 className="text-sm font-medium text-gray-600 mb-2">Date of Birth</h3>
           <div className="flex items-center">
             <span className="text-lg font-bold text-gray-900">
-              {new Date(student.dateOfBirth).toLocaleDateString('hi-IN')}
+              {new Date(student.dateOfBirth).toLocaleDateString('en-US')}
             </span>
           </div>
           <p className="text-xs text-gray-500 mt-1">
-            आयु: {new Date().getFullYear() - new Date(student.dateOfBirth).getFullYear()} वर्ष
+            Age: {new Date().getFullYear() - new Date(student.dateOfBirth).getFullYear()} years
           </p>
         </div>
       </div>
@@ -323,7 +323,7 @@ const StudentProfile: React.FC<StudentProfileProps> = ({ student, onBack }) => {
       {/* Alerts */}
       {student.alerts.length > 0 && (
         <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-6 mb-6">
-          <h2 className="text-lg font-semibold text-gray-900 mb-4">सक्रिय अलर्ट</h2>
+          <h2 className="text-lg font-semibold text-gray-900 mb-4">Active Alerts</h2>
           <div className="space-y-3">
             {student.alerts.map(alert => (
               <div
@@ -344,13 +344,13 @@ const StudentProfile: React.FC<StudentProfileProps> = ({ student, onBack }) => {
                     <div>
                       <p className="font-medium text-gray-900">{alert.message}</p>
                       <p className="text-sm text-gray-600 mt-1">
-                        {new Date(alert.createdAt).toLocaleDateString('hi-IN')}
+                        {new Date(alert.createdAt).toLocaleDateString('en-US')}
                       </p>
                     </div>
                   </div>
                   {!alert.acknowledged && (
                     <button className="px-3 py-1 bg-blue-600 text-white text-sm rounded-lg hover:bg-blue-700 transition-colors">
-                      स्वीकार करें
+                      Acknowledge
                     </button>
                   )}
                 </div>
@@ -363,19 +363,19 @@ const StudentProfile: React.FC<StudentProfileProps> = ({ student, onBack }) => {
       {/* Interventions */}
       <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-6 mb-6">
         <div className="flex items-center justify-between mb-4">
-          <h2 className="text-lg font-semibold text-gray-900">हस्तक्षेप</h2>
+          <h2 className="text-lg font-semibold text-gray-900">Interventions</h2>
           <button
             onClick={() => setShowNewIntervention(true)}
             className="flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors shadow-sm"
           >
             <Plus className="h-4 w-4 mr-2" />
-            कार्रवाई करें
+            Take Action
           </button>
         </div>
 
         {showNewIntervention && (
           <div className="border border-gray-200 rounded-xl p-4 mb-4 bg-gray-50">
-            <h3 className="font-medium text-gray-900 mb-3">नया हस्तक्षेप जोड़ें</h3>
+            <h3 className="font-medium text-gray-900 mb-3">Add New Intervention</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
               <select
                 value={newIntervention.type}
@@ -385,14 +385,14 @@ const StudentProfile: React.FC<StudentProfileProps> = ({ student, onBack }) => {
                 })}
                 className="px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               >
-                <option value="counseling">परामर्श</option>
-                <option value="academic_support">शैक्षणिक सहायता</option>
-                <option value="financial_aid">वित्तीय सहायता</option>
-                <option value="mentorship">मार्गदर्शन</option>
+                <option value="counseling">Counseling</option>
+                <option value="academic_support">Academic Support</option>
+                <option value="financial_aid">Financial Aid</option>
+                <option value="mentorship">Mentorship</option>
               </select>
               <input
                 type="text"
-                placeholder="सौंपा गया (नाम या ईमेल)"
+                placeholder="Assigned to (name or email)"
                 value={newIntervention.assignedTo}
                 onChange={(e) => setNewIntervention({
                   ...newIntervention,
@@ -402,7 +402,7 @@ const StudentProfile: React.FC<StudentProfileProps> = ({ student, onBack }) => {
               />
             </div>
             <textarea
-              placeholder="हस्तक्षेप का विवरण..."
+              placeholder="Intervention description..."
               value={newIntervention.description}
               onChange={(e) => setNewIntervention({
                 ...newIntervention,
@@ -416,13 +416,13 @@ const StudentProfile: React.FC<StudentProfileProps> = ({ student, onBack }) => {
                 onClick={handleAddIntervention}
                 className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
               >
-                हस्तक्षेप बनाएं
+                Create Intervention
               </button>
               <button
                 onClick={() => setShowNewIntervention(false)}
                 className="px-4 py-2 bg-gray-200 text-gray-800 rounded-lg hover:bg-gray-300 transition-colors"
               >
-                रद्द करें
+                Cancel
               </button>
             </div>
           </div>
@@ -430,7 +430,7 @@ const StudentProfile: React.FC<StudentProfileProps> = ({ student, onBack }) => {
 
         <div className="space-y-3">
           {student.interventions.length === 0 ? (
-            <p className="text-gray-600 text-center py-4">अभी तक कोई हस्तक्षेप नहीं। एक बनाने के लिए "कार्रवाई करें" पर क्लिक करें।</p>
+            <p className="text-gray-600 text-center py-4">No interventions yet. Click "Take Action" to create one.</p>
           ) : (
             student.interventions.map(intervention => (
               <div key={intervention.id} className="border border-gray-200 rounded-xl p-4 hover:shadow-md transition-shadow">
@@ -441,10 +441,10 @@ const StudentProfile: React.FC<StudentProfileProps> = ({ student, onBack }) => {
                     </span>
                     <div>
                       <h4 className="font-medium text-gray-900">
-                        {intervention.type === 'counseling' ? 'परामर्श' :
-                         intervention.type === 'academic_support' ? 'शैक्षणिक सहायता' :
-                         intervention.type === 'financial_aid' ? 'वित्तीय सहायता' :
-                         intervention.type === 'mentorship' ? 'मार्गदर्शन' : intervention.type}
+                        {intervention.type === 'counseling' ? 'Counseling' :
+                         intervention.type === 'academic_support' ? 'Academic Support' :
+                         intervention.type === 'financial_aid' ? 'Financial Aid' :
+                         intervention.type === 'mentorship' ? 'Mentorship' : intervention.type}
                       </h4>
                       <p className="text-gray-600 mt-1">{intervention.description}</p>
                       <div className="flex items-center gap-4 mt-2 text-sm text-gray-500">
@@ -454,15 +454,15 @@ const StudentProfile: React.FC<StudentProfileProps> = ({ student, onBack }) => {
                         </span>
                         <span className="flex items-center">
                           <Calendar className="h-4 w-4 mr-1" />
-                          {new Date(intervention.createdAt).toLocaleDateString('hi-IN')}
+                          {new Date(intervention.createdAt).toLocaleDateString('en-US')}
                         </span>
                       </div>
                     </div>
                   </div>
                   <span className={`px-3 py-1 rounded-full text-xs font-medium ${getStatusColor(intervention.status)}`}>
-                    {intervention.status === 'pending' ? 'लंबित' :
-                     intervention.status === 'in_progress' ? 'प्रगति में' :
-                     intervention.status === 'completed' ? 'पूर्ण' : intervention.status}
+                    {intervention.status === 'pending' ? 'Pending' :
+                     intervention.status === 'in_progress' ? 'In Progress' :
+                     intervention.status === 'completed' ? 'Completed' : intervention.status}
                   </span>
                 </div>
               </div>
@@ -473,7 +473,7 @@ const StudentProfile: React.FC<StudentProfileProps> = ({ student, onBack }) => {
 
       {/* Subject Attempts */}
       <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-6">
-        <h2 className="text-lg font-semibold text-gray-900 mb-4">विषय प्रयास</h2>
+        <h2 className="text-lg font-semibold text-gray-900 mb-4">Subject Attempts</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {Object.entries(student.subjectAttempts).map(([subject, attempts]) => (
             <div key={subject} className="border border-gray-200 rounded-xl p-4 hover:shadow-md transition-shadow">
@@ -482,7 +482,7 @@ const StudentProfile: React.FC<StudentProfileProps> = ({ student, onBack }) => {
                 attempts >= 3 ? 'text-red-600' : 
                 attempts >= 2 ? 'text-yellow-600' : 'text-green-600'
               }`}>
-                {attempts} प्रयास
+                {attempts} attempt{attempts !== 1 ? 's' : ''}
               </p>
             </div>
           ))}
